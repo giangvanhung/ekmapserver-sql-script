@@ -96,3 +96,11 @@ SELECT
     END AS ExpectedState
 FROM AbpUsers u
 WHERE u.Id = @UserId;
+
+SELECT * FROM AbpUsers
+WHERE UserName = 'kt_hethan';
+
+UPDATE AbpUsers
+SET LastPasswordChangeTime = DATEADD(DAY, -(90 + 1), GETDATE()),
+    ChangePassWordForLogInNext = 0
+WHERE UserName = 'kt_hethan';
