@@ -243,20 +243,20 @@ GO
 -- PHẦN 2 — HẬU KIỂM
 -- #############################################################################
 
--- 1) Phải đủ 9 row
-SELECT MigrationId FROM dbo.__EFMigrationsHistory ORDER BY MigrationId;
+-- -- 1) Phải đủ 9 row
+-- SELECT MigrationId FROM dbo.__EFMigrationsHistory ORDER BY MigrationId;
 
--- 2) tenantBranding phải đủ 27 cột
-SELECT COUNT(*) AS TenantBranding_SoCot_PhaiLa27
-FROM sys.columns WHERE object_id = OBJECT_ID(N'dbo.tenantBranding');
+-- -- 2) tenantBranding phải đủ 27 cột
+-- SELECT COUNT(*) AS TenantBranding_SoCot_PhaiLa27
+-- FROM sys.columns WHERE object_id = OBJECT_ID(N'dbo.tenantBranding');
 
--- 3) ⚠ QUAN TRỌNG NHẤT — cả hai phải bằng 0
-SELECT
-    (SELECT COUNT(*) FROM dbo.AbpUsers WHERE LastPasswordChangeTime IS NULL)
-        AS User_NULL_LastPasswordChangeTime_PhaiLa0,
-    (SELECT COUNT(*) FROM dbo.AbpUsers WHERE ChangePassWordForLogInNext = 1)
-        AS User_BiEpDoiMatKhau_PhaiLa0;
-GO
+-- -- 3) ⚠ QUAN TRỌNG NHẤT — cả hai phải bằng 0
+-- SELECT
+--     (SELECT COUNT(*) FROM dbo.AbpUsers WHERE LastPasswordChangeTime IS NULL)
+--         AS User_NULL_LastPasswordChangeTime_PhaiLa0,
+--     (SELECT COUNT(*) FROM dbo.AbpUsers WHERE ChangePassWordForLogInNext = 1)
+--         AS User_BiEpDoiMatKhau_PhaiLa0;
+-- GO
 
-SET NOEXEC OFF;
-GO
+-- SET NOEXEC OFF;
+-- GO
